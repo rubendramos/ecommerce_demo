@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.9.xsd">
+
+
+	<changeSet author="rubendr"	id="insert-init-values-brand-table">
+		
+		<insert tableName="brand">
+			<column name="ID" value='1' />
+			<column name="DESCRIPTION" value='ZARA' />
+		</insert>
+
+	</changeSet>
+
+
+	<changeSet author="rubendr"
+		id="insert-init-values-price-table">
+		
+		<insert tableName="price">
+			<column name="BRAND_ID" value='1' />
+			<column name="START_DATE" value='2016-06-22 19:10:25-07' />
+			<column name="END_DATE" value='2016-07-22 19:10:25-07' />
+			<column name="PRICE_LIST" value='1' />
+			<column name="PRODUCT_ID" value='35455' />
+			<column name="PRIORITY" value='0' />
+			<column name="PRICE" value='35.50' />
+			<column name="CURR" value='EUR' />
+		</insert>
+
+		<insert tableName="price">
+			<column name="BRAND_ID" value='1' />
+			<column name="START_DATE" value='2016-06-22 19:10:25-07' />
+			<column name="END_DATE" value='2016-07-22 19:10:25-07' />
+			<column name="PRICE_LIST" value='2' />
+			<column name="PRODUCT_ID" value='35455' />
+			<column name="PRIORITY" value='1' />
+			<column name="PRICE" value='25.45' />
+			<column name="CURR" value='EUR' />
+		</insert>
+
+		<insert tableName="price">
+			<column name="BRAND_ID" value='1' />
+			<column name="START_DATE" value='2016-06-22 19:10:25-07' />
+			<column name="END_DATE" value='2016-07-22 19:10:25-07' />
+			<column name="PRICE_LIST" value='3' />
+			<column name="PRODUCT_ID" value='35455' />
+			<column name="PRIORITY" value='1' />
+			<column name="PRICE" value='30.50' />
+			<column name="CURR" value='EUR' />
+		</insert>
+
+		<insert tableName="price">
+			<column name="BRAND_ID" value='1' />
+			<column name="START_DATE" value='2016-06-22 19:10:25-07' />
+			<column name="END_DATE" value='2016-07-22 19:10:25-07' />
+			<column name="PRICE_LIST" value='4' />
+			<column name="PRODUCT_ID" value='35455' />
+			<column name="PRIORITY" value='1' />
+			<column name="PRICE" value='38.95' />
+			<column name="CURR" value='EUR' />
+		</insert>
+	</changeSet>
+
+
+</databaseChangeLog>

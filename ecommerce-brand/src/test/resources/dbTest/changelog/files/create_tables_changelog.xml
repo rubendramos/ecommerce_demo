@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.9.xsd">
+
+
+	<changeSet author="rubendr" id="dropTable-tbl_price">
+		<preConditions onFail="MARK_RAN">
+			<tableExists tableName="price" />
+		</preConditions>
+		<dropTable cascadeConstraints="true" tableName="price" />
+	</changeSet>
+
+
+	<changeSet author="rubendr" id="createtable-brand">
+		<createTable tableName="brand">
+			<column name="id" type="serial">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="DESCRIPTION" type="varchar" />
+		</createTable>
+	</changeSet>
+
+	<changeSet author="rubendr" id="createtable-price">
+		<createTable tableName="price">
+			<column name="BRAND_ID" type="smallint" >
+				<constraints primaryKey="true" foreignKeyName="fk_brand" nullable="false"	references="brand(id)" />
+			</column>
+			<column name="START_DATE" type="timestamp" />
+			<column name="END_DATE" type="timestamp" />
+			<column name="PRICE_LIST" type="smallint" >
+			<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="PRODUCT_ID" type="bigint" >
+			<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="PRIORITY" type="smallint" />
+			<column name="PRICE" type="double" />
+			<column name="CURR" type="varchar" />
+
+		</createTable>
+	</changeSet>
+
+
+</databaseChangeLog>
